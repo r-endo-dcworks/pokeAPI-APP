@@ -8,7 +8,7 @@ export const EasyMode = (props) => {
     <>
       {isCompleted && (
         <div>
-          <h1>クリアしました🎉</h1>
+          <h1>おめでとう！クリアしました🎉</h1>
         </div>
       )}
       <div className="pokemonCardContainer">
