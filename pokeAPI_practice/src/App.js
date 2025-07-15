@@ -43,9 +43,9 @@ function App() {
     setLoading(true);
     const data = await getAllPokemon(nextURL);
     await loadPokemon(data.results);
-    setLoading(false); // 読み込み終了
     setNextURL(data.next);
     setPrevURL(data.previous);
+    setLoading(false); // 読み込み終了
   };
 
   //前へボタンを押した時の処理（次へとほぼ同じ）
@@ -54,9 +54,9 @@ function App() {
     setLoading(true);
     const data = await getAllPokemon(prevURL);
     await loadPokemon(data.results);
-    setLoading(false);
     setNextURL(data.next);
     setPrevURL(data.previous);
+    setLoading(false);
   };
 
   return (
