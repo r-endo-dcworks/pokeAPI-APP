@@ -1,49 +1,5 @@
-h1 {
-  color: #f59a9a;
-}
-
-.cardFront {
-  height: 180px;
-  width: 200px;
-  padding: 10px;
-  box-sizing: border-box;
-  box-shadow: 0px 0px 22px 3px #ffcaca;
-  border-radius: 15px;
-  background-color: rgb(255, 202, 202);
-  transition: transform 0.7s;
-}
-
-.cardFront.clicked {
-  transform: rotate(180deg);
-}
-
-.cardBack {
-  height: 180px;
-  width: 200px;
-  padding: 10px;
-  box-sizing: border-box;
-  box-shadow: 0px 0px 22px 2px #ffcaca;
-  border-radius: 15px;
-  background-color: rgb(255, 116, 116);
-  place-items: center;
-}
-
-.cardName {
-  padding: 0;
-  font-size: 20px;
-  color: #ff0000;
-  margin: 0px;
-}
-
-.cardInfo {
-  text-align: center;
-}
-
-.cardTypes {
-  min-height: 60px;
-}
-
-.pokemonCardContainer {
+/* 全てのカードの配置 */
+.pokemon-card-container {
   margin: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -51,4 +7,71 @@ h1 {
   gap: 20px;
 }
 
-/* aaa */
+.card {
+  height: 180px;
+  width: 200px;
+  padding: 10px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* カード共通部分 */
+.card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 22px 3px #ffcaca;
+  border-radius: 15px;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+/* カード表面 */
+.front-side {
+  background-color: rgb(255, 202, 202);
+  box-sizing: border-box;
+  transform: rotateY(180deg);
+}
+
+.is-flipped .front-side {
+  transform: rotateY(360deg);
+  padding: 10px;
+}
+
+/* カード裏面 */
+.back-side {
+  background-color: rgb(255, 116, 116);
+  place-items: center;
+  transform: none;
+}
+
+.is-flipped .back-side {
+  transform: rotateY(180deg);
+}
+
+/* ポケモンの名前 */
+.cardName {
+  padding: 0;
+  font-size: 20px;
+  color: #ff0000;
+  margin: 0px;
+}
+
+/* ポケモンの情報 */
+/* .cardInfo {
+  text-align: center;
+} */
+
+/* ポケモンのタイプ */
+/* .cardTypes {
+  min-height: 60px;
+} */
+
+/* クリア時のメッセージ */
+h1 {
+  color: #f59a9a;
+}
