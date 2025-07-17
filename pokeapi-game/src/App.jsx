@@ -10,6 +10,7 @@ const App = () => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [openedCards, setOpenedCards] = useState([]);
   const [isCompleted, setIsCompleted] = useState(false);
+  //const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
     setIsStart(false);
@@ -41,10 +42,6 @@ const App = () => {
     }
     if (!flippedCards.includes(id)) {
       setFlippedCards([...flippedCards, id]);
-    } else {
-      setFlippedCards(
-        flippedCards.filter((flippedCards) => flippedCards !== id),
-      );
     }
   };
 
@@ -66,7 +63,7 @@ const App = () => {
       console.log('カードが一致しませんでした');
       setTimeout(() => {
         setFlippedCards([]);
-      }, 2000);
+      }, 1000);
     }
   }, [flippedCards]);
 
