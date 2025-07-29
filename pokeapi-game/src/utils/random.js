@@ -1,12 +1,12 @@
 import { getAllPokemon, getPokemon } from './pokemon.js';
-const initialURL = 'https://pokeapi.co/api/v2/pokemon?limit=1000';
+const initialURL = 'https://pokeapi.co/api/v2/pokemon?limit=100';
 
 //ポケモンをランダムに６種類の詳細情報を取得する処理
 export const random = async () => {
   const res = await getAllPokemon(initialURL);
   const allPokemon = res.results;
 
-  // ランダムに4種類選ぶ
+  // ランダムに6種類選ぶ
   const selected = []; //空配列を用意
   const usedIndices = new Set(); //重複を防ぐためにSetを作成
   while (selected.length < 6) {
@@ -21,7 +21,6 @@ export const random = async () => {
 
   // 詳細データを取得
   const detailed = await Promise.all(selected.map((p) => getPokemon(p.url)));
-
   return detailed;
 };
 

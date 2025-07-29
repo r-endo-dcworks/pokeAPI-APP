@@ -12,15 +12,19 @@ const App = () => {
   const [isCompleted, setIsCompleted] = useState(false);
   //const [isFlipped, setIsFlipped] = useState(false);
 
+  //TODO: useStateを全て初期化する処理を記述
   useEffect(() => {
     setIsStart(false);
+    setFlippedCards([]);
+    setOpenedCards([]);
+    setIsCompleted(false);
   }, [isStart]);
 
   // Easyモードの初期状態
   const easyGame = async () => {
-    setLoading(true);
-    setIsCompleted(false);
+    setFlippedCards([]);
     setOpenedCards([]);
+    setIsCompleted(false);
     const detailed = await random();
     // 各ポケモンを2枚にしてシャッフル
     //同じものを2つずつ用意する
